@@ -1,0 +1,50 @@
+name: retcon_frontend
+description: Frontend to the retcon configuration server
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0
+
+environment:
+  sdk: '>=3.2.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Other dependencies
+  collection: ^1.18.0
+  cupertino_icons: ^1.0.6
+  dart_mappable: ^4.2.1
+  dio: ^5.4.1
+  flutter_riverpod: ^2.4.10
+  intl: ^0.18.1
+  iso_duration_parser: ^1.1.1
+  responsive_grid: ^2.4.4
+  riverpod_annotation: ^2.3.4
+  shared_preferences: ^2.2.2
+  tabbed_card: ^0.0.2
+  uuid: ^4.3.3
+  vrouter: ^1.2.1
+  yaru: ^4.0.0
+  yaru_icons: ^2.4.0
+
+# Dependencies only needed for development
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.8
+  riverpod_generator: ^2.3.11
+  dart_mappable_builder: ^4.2.1
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+flutter_intl:
+  enabled: true
