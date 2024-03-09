@@ -5,6 +5,8 @@
   "username": "Username",
   "password": "Password",
   "submit": "Submit",
+  "edit": "Edit",
+  "cancel": "Cancel",
   "add_edit_app": "Add/Edit App",
   "app_id_tooltip": "Enter a valid UUID here or click the icon to generate one.",
   "app_name_tooltip": "Enter a name for your application.",

@@ -152,11 +152,11 @@ extension DeploymentDialog on BuildContext {
                       actions: [
                         MaterialButton(
                           onPressed: () => Navigator.pop(ctx),
-                          child: const Text('Cancel'),
+                          child: Text(AppLocalizations.of(ctx)!.cancel),
                         ),
                         MaterialButton(
                           onPressed: () => Navigator.pop(ctx, true),
-                          child: const Text('Edit'),
+                          child: Text(AppLocalizations.of(ctx)!.edit),
                         )
                       ],
                     );

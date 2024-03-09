@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retcon_frontend/providers/providers.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:yaru/yaru.dart';
-import 'package:yaru_icons/yaru_icons.dart';
 
 import '../main.dart';
 
