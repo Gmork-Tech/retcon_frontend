@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iso_duration_parser/iso_duration_parser.dart';
 import 'package:retcon_frontend/components/padded_dropdown_with_tip.dart';
 import 'package:retcon_frontend/components/padded_input_with_tip.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:retcon_frontend/model/ByPercentDeployment.dart';
 import 'package:retcon_frontend/model/ByQuantityDeployment.dart';
 import 'package:retcon_frontend/model/FullDeployment.dart';
 import 'package:retcon_frontend/model/PartialManualDeployment.dart';
 
+import '../l10n/app_localizations.dart';
 import '../model/Deployment.dart';
 
 extension DeploymentDialog on BuildContext {

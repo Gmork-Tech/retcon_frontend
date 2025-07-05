@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:retcon_frontend/components/padded_chip_with_tip.dart';
 import 'package:retcon_frontend/components/padded_input_with_tip.dart';
 import '../components/tables/CustomDataSource.dart';
 import '../components/tables/custom_table.dart';
+import '../l10n/app_localizations.dart';
 import '../model/Application.dart';
 import '../providers/providers.dart';
 

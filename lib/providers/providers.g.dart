@@ -21,36 +21,7 @@ final navSelectionProvider =
 );
 
 typedef _$NavSelection = AutoDisposeNotifier<int>;
-String _$serverHash() => r'a5951aac03ecbfccdb73b2af2568b5c4a7f08466';
-
-/// See also [Server].
-@ProviderFor(Server)
-final serverProvider =
-    AutoDisposeAsyncNotifierProvider<Server, String?>.internal(
-  Server.new,
-  name: r'serverProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$serverHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$Server = AutoDisposeAsyncNotifier<String?>;
-String _$authHash() => r'0ad5619f2131a2bcf43f9b1daa8d8cecfe958f42';
-
-/// See also [Auth].
-@ProviderFor(Auth)
-final authProvider = AutoDisposeNotifierProvider<Auth, String?>.internal(
-  Auth.new,
-  name: r'authProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$authHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$Auth = AutoDisposeNotifier<String?>;
-String _$appsHash() => r'2b7f4880f40569d3f5a9affdcd341345593c760a';
+String _$appsHash() => r'211c2c8df466a26c12939b8d9c1b3e4637ba1563';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -198,6 +169,8 @@ class AppsProvider extends AutoDisposeAsyncNotifierProviderImpl<Apps,
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AppsRef on AutoDisposeAsyncNotifierProviderRef<ApplicationListResponse> {
   /// The parameter `pageNo` of this provider.
   int get pageNo;
@@ -226,4 +199,4 @@ final appProvider = AutoDisposeNotifierProvider<App, Application>.internal(
 
 typedef _$App = AutoDisposeNotifier<Application>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:retcon_frontend/providers/providers.dart';
+import 'package:go_router/go_router.dart';
+import 'package:retcon_frontend/clients/api_client.dart';
 import 'package:tabbed_card/tabbed_card.dart';
-import 'package:vrouter/vrouter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../l10n/app_localizations.dart';
 
 class LoginPage extends ConsumerWidget {
   LoginPage({super.key});
 
   final TextEditingController userController = TextEditingController();
-  final TextEditingController idpUserController = TextEditingController();
   final TextEditingController passController = TextEditingController();
+
+  final TextEditingController idpUserController = TextEditingController();
   final TextEditingController idpPassController = TextEditingController();
 
   Future<void> submitAuth(BuildContext ctx, WidgetRef ref, bool isIDP) async {
-    var provider = ref.watch(authProvider.notifier);
     String? user;
     String? pass;
     if (isIDP) {
@@ -27,16 +28,19 @@ class LoginPage extends ConsumerWidget {
       user = userController.value.text;
       pass = passController.value.text;
       if (user != "" && pass != "") {
-        provider.setBasicAuthString(user, pass);
+        DioClient.getInstance().configureBasicAuth(user, pass);
       }
     }
-    var prev = ctx.vRouter.previousPath;
-    if (prev != null && prev != ctx.vRouter.path) {
-      print("prev is $prev");
-      ctx.vRouter.to(prev);
-    } else {
-      ctx.vRouter.toNamed("apps");
-    }
+    // TODO: Fix me with navigation observer
+    //var prev = ctx.vRouter.previousPath;
+    // var current = GoRouter.of(ctx).state.fullPath;
+    // if (prev != null && prev != current) {
+    //   print("prev is $prev");
+    //   ctx.go(prev);
+    // } else {
+    //   ctx.goNamed("apps");
+    // }
+    ctx.goNamed("apps");
   }
 
   @override

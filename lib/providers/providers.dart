@@ -1,6 +1,6 @@
 
 import 'dart:convert';
-
+import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:retcon_frontend/clients/api_client.dart';
 import 'package:retcon_frontend/model/ApplicationListResponse.dart';
@@ -29,65 +29,12 @@ class NavSelection extends _$NavSelection {
   }
 }
 
-
-@riverpod
-class Server extends _$Server {
-
-  @override
-  FutureOr<String?> build() {
-    return getServer();
-  }
-
-  Future<String?> getServer() {
-    if (kIsWeb) {
-      if (kDebugMode) {
-        return Future(() =>
-        "${Uri.base.scheme}://${Uri.base.host}:8080");
-      }
-      return Future(() => Uri.base.origin);
-    }
-    return SharedPreferences.getInstance().then((prefs) =>
-        prefs.getString("server"));
-  }
-
-  Future<void> setServer(String server) {
-    if (kIsWeb) {
-      return Future(() => {});
-    }
-    return SharedPreferences.getInstance()
-        .then((prefs) =>
-          prefs.setString("server", server))
-        .then((value) =>
-          DioClient().setBaseURL());
-  }
-}
-
-@riverpod
-class Auth extends _$Auth {
-
-  @override
-  String? build() {
-    return null;
-  }
-
-  void setBasicAuthString(String user, String pass) {
-    state = 'Basic ${base64.encode(utf8.encode('$user:$pass'))}';
-    DioClient().setAuth(state);
-  }
-
-  void setBearerTokenAuthString(String token) {
-    state = 'Bearer $token';
-    DioClient().setAuth(state);
-  }
-
-}
-
 @riverpod
 class Apps extends _$Apps {
 
   @override
   FutureOr<ApplicationListResponse> build(int pageNo) async {
-    var res = await DioClient().getApps(pageNo: pageNo);
+    var res = await DioClient.getInstance().getApps(pageNo: pageNo);
     if (res.data != null) {
       return ApplicationListResponseMapper.fromJson(res.data!);
     }

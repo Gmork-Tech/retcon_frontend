@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:retcon_frontend/components/loading_widget.dart';
 import 'package:retcon_frontend/components/status_code_widget.dart';
 import 'package:retcon_frontend/model/Application.dart';
 import 'package:retcon_frontend/providers/providers.dart';
-import 'package:vrouter/vrouter.dart';
 
 class ApplicationsPage extends ConsumerWidget {
   const ApplicationsPage({super.key});
@@ -18,7 +20,8 @@ class ApplicationsPage extends ConsumerWidget {
         child: InkWell(
           onTap: () async {
             ref.watch(appProvider.notifier).setApplication(app);
-            context.vRouter.to("/apps/edit");
+            log("Going to app page");
+            context.go("/apps/${app.id}");
           },
           child: Center(
             child: Text(app.name),
@@ -51,7 +54,7 @@ class ApplicationsPage extends ConsumerWidget {
                 child: FloatingActionButton(
                   onPressed: () async {
                     ref.watch(appProvider.notifier).resetToDefaults();
-                    context.vRouter.to("/apps/edit");
+                    context.go("/apps/edit");
                   },
                   child: const Text("+"),
                 ),

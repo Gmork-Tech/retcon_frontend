@@ -1,25 +1,18 @@
-import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final Future<SharedPreferences> latePrefs = SharedPreferences.getInstance();
+class StorageClient {
 
+  static final String _SERVER_KEY = "server";
 
-Future<String?> getServerFromStorage() {
-  if (kIsWeb) {
-    if (kDebugMode) {
-      return Future(() =>
-      "${Uri.base.scheme}://${Uri.base.host}:8080");
-    }
-    return Future(() => Uri.base.origin);
+  static Future<String?> getServerFromStorage() async {
+    return await SharedPreferences.getInstance()
+        .then((prefs) => prefs.getString(_SERVER_KEY));
   }
-  return latePrefs.then((prefs) => 
-      prefs.getString("server"));
+
+  static Future<bool> setServerInStorage(String server) async {
+    return await SharedPreferences.getInstance()
+        .then((prefs) => prefs.setString(_SERVER_KEY, server));
+  }
+
 }
 
-Future<void> setServerInStorage(String server) {
-  if (kIsWeb) {
-    return Future(() => {});
-  }
-  return latePrefs.then((prefs) =>
-      prefs.setString("server", server));
-}

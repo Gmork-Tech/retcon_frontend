@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:retcon_frontend/providers/providers.dart';
-import 'package:vrouter/vrouter.dart';
 import 'package:yaru/yaru.dart';
 
-import '../main.dart';
+import '../core/app_theme.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
-class Layout extends ConsumerWidget {
+class NavLayout extends ConsumerWidget {
 
   final Widget? child;
 
@@ -25,7 +25,7 @@ class Layout extends ConsumerWidget {
     ),
   };
 
-  Layout({super.key, this.child});
+  NavLayout({super.key, this.child});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +36,7 @@ class Layout extends ConsumerWidget {
         selectedIndex: navValue,
         onSelected: (index) {
           ref.watch(navSelectionProvider.notifier).update(index);
-          context.vRouter.to(_items.entries.elementAt(index).key);
+          context.go(_items.entries.elementAt(index).key);
         },
         items: _items,
       ),
@@ -66,7 +66,7 @@ class Layout extends ConsumerWidget {
                     selectedIndex: navValue,
                     onDestinationSelected: (index) {
                       ref.watch(navSelectionProvider.notifier).update(index);
-                      context.vRouter.to(_items.entries.elementAt(index).key);
+                      context.go(_items.entries.elementAt(index).key);
                     },
                 ),
                 const VerticalDivider(
@@ -102,7 +102,7 @@ class Layout extends ConsumerWidget {
                   selectedIndex: navValue,
                   onDestinationSelected: (index) {
                     ref.watch(navSelectionProvider.notifier).update(index);
-                    context.vRouter.to(_items.entries.elementAt(index).key);
+                    context.go(_items.entries.elementAt(index).key);
                   },
                 ),
               ],
