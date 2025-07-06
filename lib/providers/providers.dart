@@ -13,7 +13,7 @@ import '../model/Deployment.dart';
 
 import 'package:collection/collection.dart';
 
-part 'providers.g.dart';
+part '../generated/providers/providers.g.dart';
 
 const Uuid uuid = Uuid();
 

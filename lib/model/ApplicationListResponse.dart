@@ -1,7 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:retcon_frontend/model/Application.dart';
 
-part 'ApplicationListResponse.mapper.dart';
+part '../generated/model/ApplicationListResponse.mapper.dart';
 
 @MappableClass()
 class ApplicationListResponse with ApplicationListResponseMappable {

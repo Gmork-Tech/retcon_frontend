@@ -6,7 +6,7 @@ import 'package:retcon_frontend/model/validation_exception.dart';
 
 import 'ConfigProp.dart';
 
-part 'ByQuantityDeployment.mapper.dart';
+part '../generated/model/ByQuantityDeployment.mapper.dart';
 
 @MappableClass(discriminatorValue: 'BY_QUANTITY')
 class ByQuantityDeployment extends Deployment with ByQuantityDeploymentMappable {

@@ -3,7 +3,7 @@ import 'package:dart_mappable/dart_mappable.dart';
 import 'package:retcon_frontend/model/Deployment.dart';
 import 'ConfigProp.dart';
 
-part 'PartialManualDeployment.mapper.dart';
+part '../generated/model/PartialManualDeployment.mapper.dart';
 
 @MappableClass(discriminatorValue: 'MANUAL')
 class PartialManualDeployment extends Deployment with PartialManualDeploymentMappable {

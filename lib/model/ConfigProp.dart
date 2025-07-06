@@ -1,7 +1,7 @@
 
 import 'package:dart_mappable/dart_mappable.dart';
 
-part 'ConfigProp.mapper.dart';
+part '../generated/model/ConfigProp.mapper.dart';
 
 @MappableClass()
 class ConfigProp with ConfigPropMappable {

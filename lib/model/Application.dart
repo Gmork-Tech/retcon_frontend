@@ -4,7 +4,7 @@ import 'package:retcon_frontend/model/Validatable.dart';
 
 import 'Deployment.dart';
 
-part 'Application.mapper.dart';
+part '../generated/model/Application.mapper.dart';
 
 @MappableClass()
 class Application with ApplicationMappable implements Validatable {

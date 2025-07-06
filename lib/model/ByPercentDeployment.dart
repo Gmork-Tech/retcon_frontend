@@ -6,7 +6,7 @@ import 'package:retcon_frontend/model/validation_exception.dart';
 
 import 'ConfigProp.dart';
 
-part 'ByPercentDeployment.mapper.dart';
+part '../generated/model/ByPercentDeployment.mapper.dart';
 
 @MappableClass(discriminatorValue: 'BY_PERCENTAGE')
 class ByPercentDeployment extends Deployment with ByPercentDeploymentMappable {

@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      dart_mappable_builder:
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart':
+              - 'lib/generated/{{path}}/{{file}}.mapper.dart'
+              - 'lib/generated/{{path}}/{{file}}.init.dart'
+      source_gen:combining_builder:
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart':
+              - 'lib/generated/{{path}}/{{file}}.g.dart'

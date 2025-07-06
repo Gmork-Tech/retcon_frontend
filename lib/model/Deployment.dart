@@ -13,9 +13,14 @@ import 'package:retcon_frontend/providers/providers.dart';
 import '../components/tables/Tabular.dart';
 import 'ConfigProp.dart';
 
-part 'Deployment.mapper.dart';
+part '../generated/model/Deployment.mapper.dart';
 
-@MappableClass(discriminatorKey: 'kind', includeSubClasses: [FullDeployment, PartialManualDeployment, ByPercentDeployment, ByQuantityDeployment])
+@MappableClass(discriminatorKey: 'kind', includeSubClasses: [
+      FullDeployment,
+      PartialManualDeployment,
+      ByPercentDeployment,
+      ByQuantityDeployment
+])
 abstract class Deployment extends Tabular with DeploymentMappable implements Validatable {
 
   int id;

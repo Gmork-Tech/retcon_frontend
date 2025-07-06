@@ -4,6 +4,8 @@
   "name": "Name",
   "username": "Username",
   "password": "Password",
+  "drawer_applications": "Applications",
+  "drawer_users": "Users",
   "submit": "Submit",
   "edit": "Edit",
   "cancel": "Cancel",

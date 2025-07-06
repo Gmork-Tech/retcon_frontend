@@ -4,7 +4,7 @@ import 'package:retcon_frontend/model/Deployment.dart';
 
 import 'ConfigProp.dart';
 
-part 'FullDeployment.mapper.dart';
+part '../generated/model/FullDeployment.mapper.dart';
 
 @MappableClass(discriminatorValue: 'FULL')
 class FullDeployment extends Deployment with FullDeploymentMappable {
